@@ -1,5 +1,5 @@
 <?php snippet('header') ?>
-
+<?php snippet('breadcrumb') ?>
 <section class="content blogarticle main">
   <article>
     <h1><?php echo $page->title()->html() ?></h1>
