@@ -5,7 +5,7 @@
     </div>
 
     <div class="colophon">
-      <p>Por Miya con Kirby <b>♥</b></p>
+      <p>Por Miya & Kirby with <b>♥</b></p>
     </div>
 
   </footer>
