@@ -6,7 +6,6 @@
                 ->paginate(10);
 ?>
 <?php snippet('header') ?>
-<?php snippet('menu') ?>
 
   <main role="main">
 
@@ -17,7 +16,7 @@
             echo '<h1 class="result">';
 
             if($countItems == 0) {
-              echo 'No results';
+              echo 'No hay resultados';
             }
             elseif($countItems == 1) {
               echo $countItems , ' result';
@@ -26,7 +25,7 @@
               echo $countItems , ' results';
             }
 
-            echo  ' for “<mark>' , $query , '</mark>”</h1>';
+            echo  ' para “<mark>' , $query , '</mark>”</h1>';
     } ?>
 
     <?php if($results->count() != 0): ?>
