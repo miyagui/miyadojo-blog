@@ -1,36 +1,118 @@
 <?php snippet('header') ?>
 
-<section class="content blog main">
+  <main role="main">
 
-  <h1><?php echo $page->title()->html() ?></h1>
-  <?php echo $page->text()->kirbytext() ?>
-	
-	<?php $articles = $page->children()->visible()->flip()->paginate(5) ?>
-  <?php foreach($articles as $article): ?>
+    <?php if(param('tag')): // show tag results ?>
+    <?php $tag = urldecode(param('tag'));
+          $articles = $pages->find('blog')
+                            ->children()
+                            ->visible()
+                            ->filterBy('tags', $tag, ',')
+                            ->flip()
+                            ->paginate(10);
 
-  <article>
-    <h1><?php echo $article->title()->html() ?></h1>
-    <p><?php echo kirbytext($article->intro()) ?></p>
-    <a href="<?php echo $article->url() ?>">Seguir leyendo...</a>
-  </article>
+          echo '<h1 class="result">Articles tagged with “<mark>' , $tag , '</mark>”</h1>';
+    ?>
 
-  <?php endforeach ?>
+    <ul class="results">
+      <?php foreach($articles as $article): ?>
+      <li>
+        <h2><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h2>
+        <div class="meta">
+          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
+          <?php if ($article->tags() != ''): ?> |
+          <ul class="tags">
+            <?php foreach(str::split($article->tags()) as $tag): ?>
+            <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+            <?php endforeach ?>
+          </ul>
+          <?php endif ?>
+        </div>
+      </li>
+      <?php endforeach ?>
+    </ul>
 
-<!--  -->
-<?php if($articles->pagination()->hasPages()): ?>
-	<nav class="pagination">
 
-	  <?php if($articles->pagination()->hasNextPage()): ?>
-	  <a class="next" href="<?php echo $articles->pagination()->nextPageURL() ?>">&lsaquo; newer posts</a>
-	  <?php endif ?>
+    <?php else: // show latest articles ?>
 
-	  <?php if($articles->pagination()->hasPrevPage()): ?>
-	  <a class="prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">older posts &rsaquo;</a>
-	  <?php endif ?>
+    <h1 class="vh">Blog</h1>
 
-	</nav>
-<?php endif ?>
+    <?php $articles = $pages->find('blog')->children()->visible()->flip()->paginate(3) ?>
 
-</section>
+    <?php foreach($articles as $article): // article overview ?>
 
-<?php snippet('footer') ?>
+    <?php if($article->template() == 'article.text'): // text posts ?>
+    <article>
+      <header>
+        <h1><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h1>
+        <div class="meta">
+          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
+          <?php if($article->tags() != ''): ?> |
+          <ul class="tags">
+          <?php foreach(str::split($article->tags()) as $tag): ?>
+          <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+          <?php endforeach ?>
+          </ul>
+          <?php endif ?>
+        </div>
+      </header>
+      <p><?php echo excerpt($article->text(), 400) ?>
+      <a href="<?php echo $article->url() ?>">[read more →]</a></p>
+    </article>
+
+    <?php elseif($article->template() == 'article.link'): // link posts ?>
+    <article>
+      <header>
+        <h1><a href="<?php echo $article->customlink() ?>"><?php echo html($article->linktitle()) ?> →</a></h1>
+        <div class="meta">
+          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
+          <?php if($article->tags() != ''): ?> |
+          <ul class="tags">
+            <?php foreach(str::split($article->tags()) as $tag): ?>
+            <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+            <?php endforeach ?>
+          </ul>
+          <?php endif ?>
+          | <a href="<?php echo $article->url() ?>">permalink</a>
+        </div>
+      </header>
+      <?php echo kirbytext($article->text()) ?>
+    </article>
+
+    <?php elseif($article->template() == 'article.video'): // video posts ?>
+    <article>
+      <header class="meta">
+        <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
+        <?php if($article->tags() != ''): ?> |
+        <ul class="tags">
+          <?php foreach(str::split($article->tags()) as $tag): ?>
+          <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+          <?php endforeach ?>
+        </ul>
+        <?php endif ?>
+        | <a href="<?php echo $article->url() ?>">permalink</a>
+      </header>
+      <?php echo kirbytext($article->text()) ?>
+    </article>
+    <?php endif ?>
+
+    <?php endforeach // article overview ends ?>
+
+
+    <?php endif ?>
+
+
+    <?php if($articles->pagination()->hasPages()): // pagination ?>
+    <nav class="pagination cf">
+      <?php if($articles->pagination()->hasPrevPage()): ?>
+      <a class="button prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">&lsaquo;&lsaquo; newer posts</a>
+      <?php endif ?>
+      <?php if($articles->pagination()->hasNextPage()): ?>
+      <a class="button next" href="<?php echo $articles->pagination()->nextPageURL() ?>">older posts &rsaquo;&rsaquo;</a>
+      <?php endif ?>
+    </nav>
+    <?php endif ?>
+
+  </main>
+
+  <?php snippet('footer') ?>
