@@ -1,7 +1,7 @@
 <?php if(!defined('KIRBY')) exit ?>
 
-title: Default
-pages: true
+title: Search
+pages: false
 files: true
 fields:
   title:
@@ -11,7 +11,3 @@ fields:
     label: Description
     type:  text
     icon: info-circle
-  text:
-    label: Text
-    type:  textarea
-    icon:  file-text-o
