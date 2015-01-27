@@ -1,15 +1,32 @@
-Title: Home
+Title: Indice
 
 ----
 
-Text: Yay! If you are seeing this, the installation of Kirby worked. :)
+Text: 
 
-## Get started
+## miyadojo.com
 
-- Go to the (link: panel text: panel) to give Kirby's admin interface a try
-- Check out the (link: http://getkirby.com/docs text: docs) and start building your own site
-- Follow (twitter: @getkirby) on Twitter for updates
-- Visit the (link: http://getkirby.com/forum text: forum) to connect with other Kirby users
-- (link: http://getkirby.com/support text: Get in contact) if you need support.
+### Meta
+La idea detrás de este blog es la de subir el estándar peruano a través del análisis de obras extranjeras. Se tratará de romper con nuestro paradigma a través de lo que yo llamo, antropología digital. Demostraremos el intrincado de la belleza del comportamiento humano detrás del medio.
 
-**Have fun with Kirby!**
+### Filo 
+- Diseño minimalista centrado en el usuario
+- Enfoque dirigido a contenido 
+- Libertad de expresión y pensamiento. Los límites los dictó Hebdo, respeto del espacio del (link: / text: Otro).
+
+### Contenido
+- Audiovisuales
+- Artes literarias
+- Bienestar personal y salud
+- Productividad
+- Desarrollo web
+- Tecnologías de información (Software y Apps)
+- Nuevas tecnologías aplicadas
+
+### Personal
+El blog estará en constante iteración estructural.
+También como promesa personal estaré escribiendo al menos un post cada día, por más corto que sea.
+
+Si deseas también puedes seguirme en Twitter (twitter: @mrmiyagui).
+
+**Salu2**

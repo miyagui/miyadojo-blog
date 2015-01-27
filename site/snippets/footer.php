@@ -5,7 +5,7 @@
     </div>
 
     <div class="colophon">
-      <a href="http://getkirby.com/made-with-kirby-and-love">Made with Kirby and <b>♥</b></a>
+      <p>Por Miya con Kirby <b>♥</b></p>
     </div>
 
   </footer>

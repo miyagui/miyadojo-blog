@@ -1,17 +1,17 @@
-Title: Kirby Starterkit
+Title: Miyadojo
 
 ----
 
-Author: Bastian Allgeier GmbH
+Author: Jonathan Montesinos
 
 ----
 
-Description: This is Kirby's Starterkit.
+Description: Profundidad pal cuadrado.
 
 ----
 
-Keywords: Kirby, CMS, file-based
+Keywords: 
 
 ----
 
-Copyright: © 2009-(date: Year) (link: http://getkirby.com text: Kirby)
+Copyright: © (date: Year) (link: http://miyadojo.com text: Miyadojo)
