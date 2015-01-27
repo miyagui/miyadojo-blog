@@ -1,7 +1,0 @@
-Title: Blog
-----
-Text: 
-
-##Mis últimos artículos
-
-----

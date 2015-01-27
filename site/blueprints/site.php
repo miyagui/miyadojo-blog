@@ -1,20 +1,21 @@
 <?php if(!defined('KIRBY')) exit ?>
 
 title: Site
-pages: default
+pages:
+  template:
+    - default
+files: true
 fields:
   title:
     label: Title
     type:  text
-  author:
-    label: Author
-    type:  text
   description:
     label: Description
+    type:  text
+    icon:  info-circle
+  line-a:
+    type:  line
+  info:
+    label: Site info
     type:  textarea
-  keywords:
-    label: Keywords
-    type:  tags
-  copyright:
-    label: Copyright
-    type:  textarea
+    icon:  file-text-o

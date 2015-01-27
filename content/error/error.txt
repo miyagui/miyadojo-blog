@@ -1,8 +1,15 @@
-Title: Error
+Title:
+
+Error
 
 ----
 
-Text: 
+Description:
 
-Ésta página no existe, ¿Estás seguro que has escrito bien la URL?
-Regresa al (link: / text: Indice) y busca nuevamente.
+This could be a pretty helpful error page.
+
+----
+
+Text:
+
+The page you've been looking for has not been found.
