@@ -38,6 +38,8 @@
       <?php endif ?>
     </nav>
 
+    <?php snippet('disqus', array('disqus_shortname' => 'Miyadojo', 'disqus_developer' => true)) ?>
+
   </main>
 
 <?php snippet('footer') ?>

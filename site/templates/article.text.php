@@ -3,19 +3,6 @@
   <main role="main">
 
     <article>
-<!--     	<header>
-        <h1><?php echo html($page->title()) ?></h1>
-        <div class="meta">
-          <time datetime="<?php echo $page->date('c') ?>"><?php echo $page->date('F dS, Y'); ?></time>
-          <?php if($page->tags() != ''): ?> |
-          <ul class="tags">
-            <?php foreach(str::split($page->tags()) as $tag): ?>
-            <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
-            <?php endforeach ?>
-          </ul>
-          <?php endif ?>
-        </div>
-      </header> -->
       <header>
         <h1><a href="<?php echo $page->url() ?>"><?php echo html($page->title()) ?></a></h1>
           
@@ -42,16 +29,9 @@
       </footer>
     </article>
 
-    <nav class="nextprev cf" role="navigation">
-      <?php if($prev = $page->prevVisible()): ?>
-      <a class="prev" href="<?php echo $prev->url() ?>">&larr; anterior</a>
-      <?php endif ?>
-      <?php if($next = $page->nextVisible()): ?>
-      <a class="next" href="<?php echo $next->url() ?>">siguiente &rarr;</a>
-      <?php endif ?>
-    </nav>
+    <?php snippet('navigate') ?>
     
-  <?php snippet('disqus', array('disqus_shortname' => 'Miyadojo', 'disqus_developer' => true)) ?>
+    <?php snippet('disqus', array('disqus_shortname' => 'Miyadojo', 'disqus_developer' => true)) ?>
 
   </main>
 

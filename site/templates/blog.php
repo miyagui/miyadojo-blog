@@ -19,7 +19,7 @@
       <li>
         <h2><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h2>
         <div class="meta">
-          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
+          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
           <?php if ($article->tags() != ''): ?> |
           <ul class="tags">
             <?php foreach(str::split($article->tags()) as $tag): ?>
@@ -53,13 +53,12 @@
             <?php if($article->tags() != ''): ?>
                 <?php foreach(str::split($article->tags()) as $tag): ?>
                 <li> 
-                  <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+                  <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
                 </li>
                 <?php endforeach ?>
               
             <?php endif ?>
-          </ul>
-          
+          </ul>         
       </header>
       <div class="text">
         <p><?php echo excerpt($article->text(), 400) ?></p>
@@ -79,7 +78,7 @@
           <?php if($article->tags() != ''): ?>
               <?php foreach(str::split($article->tags()) as $tag): ?>
               <li> 
-                <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+                <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
               </li>
               <?php endforeach ?>
             
@@ -104,7 +103,7 @@
           <?php if($article->tags() != ''): ?>
               <?php foreach(str::split($article->tags()) as $tag): ?>
               <li> 
-                <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+                <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
               </li>
               <?php endforeach ?>
             
@@ -130,10 +129,10 @@
     <?php if($articles->pagination()->hasPages()): // pagination ?>
       <nav class="nextprev cf" role="navigation">
         <?php if($articles->pagination()->hasprevPage()): ?>
-        <a class="prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">&larr; previous</a>
+        <a class="prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">&larr; anterior</a>
         <?php endif ?>
         <?php if($articles->pagination()->hasnextPage()): ?>
-        <a class="next" href="<?php echo $articles->pagination()->nextPageURL() ?>">next &rarr;</a>
+        <a class="next" href="<?php echo $articles->pagination()->nextPageURL() ?>">siguiente &rarr;</a>
         <?php endif ?>
       </nav>
     <?php endif ?> 
