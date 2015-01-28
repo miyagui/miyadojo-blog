@@ -217,7 +217,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 -------------------------------------------------- */
 .main {
   padding-bottom: 1.5em;
-  border-bottom: 2px solid red;
 }
 .main hr {
   margin: 3em 0;
@@ -249,7 +248,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   margin-bottom: 1.5em;
 }
 .meta li {
-  float: left;
+  display: inline;  
   list-style: none;
   margin-right: 2em;
   color: red;
@@ -301,6 +300,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 /* Footer
 -------------------------------------------------- */
 .footer {
+  border-top: 2px solid red;
   padding: 1em 0 6em;
   font-size: .8em;
 }
@@ -389,9 +389,8 @@ article {
   margin-bottom: 5em;
 }
   article header {
-    margin-bottom: 2em;
-    padding-bottom: .5em;
-    border-bottom: 2px solid #ddd;
+    margin-bottom: 1.5em;
+/*    border-bottom: 2px solid #ddd;*/
   }
   article footer {
     margin-top: 3em;
@@ -416,7 +415,7 @@ article {
 .tags {
   display: inline;
 }
-  .tags li {
+  .tags li a {
     display: inline;
     margin-right: .25em;
     text-transform: lowercase;
@@ -497,16 +496,16 @@ a.button {
 /*
  :::  Code
 -------------------------------------------------- */
-.content pre {
+.text pre {
   margin-bottom: 2em;
   padding: 2em;
   background: #f5f5f5;
   overflow: auto;
 }
-.content code {
+.text code {
   font-family: 'Menlo', Courier, monospace;
 }
-.content p code {
+.text p code {
   background-color: #eee;
 }
 
@@ -515,12 +514,12 @@ a.button {
 /*
  :::  Unordered Lists
 -------------------------------------------------- */
-.content ul {
+.text ul {
   margin-bottom: 1.5em;
   list-style: disc inside;
 }
-  .content ul ul,
-  .content ul ol {
+  .text ul ul,
+  .text ul ol {
     margin-bottom: 0;
     margin-left: 1.5em;
   }
@@ -530,12 +529,12 @@ a.button {
 /*
  :::  Ordered Lists
 -------------------------------------------------- */
-.content ol {
+.text ol {
   margin-bottom: 1.5em;
   list-style: decimal inside;
 }
-  .content ol ul,
-  .content ol ol {
+  .text ol ul,
+  .text ol ol {
     margin-bottom: 0;
     margin-left: 1.5em;
   }
@@ -545,10 +544,10 @@ a.button {
 /*
  :::  Description Lists [Markdown extra feature]
 -------------------------------------------------- */
-.content dl {
+.text dl {
   margin-bottom: 1.5em;
 }
-  .content dt {
+  .text dt {
     margin-top: 1em;
     font-weight: 700;
     font-size: 1.1em;
@@ -559,18 +558,18 @@ a.button {
 /*
   :::  Tables [Markdown extra feature]
 -------------------------------------------------- */
-.content table {
+.text table {
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 2rem;
 }
-  .content table th,
-  .content table td {
+  .text table th,
+  .text table td {
     padding: .5rem 1rem;
     background-color: #eee;
     border: 2px solid #fff;
   }
-  .content table th {
+  .text table th {
     background-color: #ddd;
   }
 
@@ -630,7 +629,7 @@ article figure {
  ::: Horizontal Line [hr]
  ------------------------------------------------- */
 
-.content hr {
+.text hr {
   margin: 3em 0;
   height: 2px;
   background: #ddd;

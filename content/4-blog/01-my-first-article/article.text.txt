@@ -2,6 +2,18 @@ Title: Mi primer articulo
 
 ----
 
+Description: This could be awesome
+
+----
+
+Date: 2015-06-01
+
+----
+
+Tags: test,cool stuff,nature
+
+----
+
 Text: 
 
 ##A Big Piece of Garbage

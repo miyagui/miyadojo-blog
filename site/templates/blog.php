@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-  <main role="main" class="main">
+  <main role="main">
 
     <?php if(param('tag')): // show tag results ?>
     <?php $tag = urldecode(param('tag'));
@@ -11,7 +11,7 @@
                             ->flip()
                             ->paginate(10);
 
-          echo '<h1 class="result">Articles tagged with “<mark>' , $tag , '</mark>”</h1>';
+          echo '<h1 class="result">Articulos marcados como “<mark>' , $tag , '</mark>”</h1>';
     ?>
 
     <ul class="results">
@@ -45,20 +45,26 @@
     <article>
       <header>
         <h1><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h1>
-        <div class="meta">
-          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
-          <?php if($article->tags() != ''): ?> |
-          <ul class="tags">
-          <?php foreach(str::split($article->tags()) as $tag): ?>
-          <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
-          <?php endforeach ?>
+          
+          <ul class="tags meta">
+            <li>
+              <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
+            </li>
+            <?php if($article->tags() != ''): ?>
+                <?php foreach(str::split($article->tags()) as $tag): ?>
+                <li> 
+                  <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+                </li>
+                <?php endforeach ?>
+              
+            <?php endif ?>
           </ul>
-          <?php endif ?>
-        </div>
+          
       </header>
-      <p><?php echo excerpt($article->text(), 400) ?>
-      <a href="<?php echo $article->url() ?>">[read more →]</a></p>
-      <hr>
+      <div class="text">
+        <p><?php echo excerpt($article->text(), 400) ?></p>
+        <a href="<?php echo $article->url() ?>">seguir leyendo →</a>
+      </div>
     </article>
     
 
@@ -66,38 +72,53 @@
     <article>
       <header>
         <h1><a href="<?php echo $article->customlink() ?>"><?php echo html($article->linktitle()) ?> →</a></h1>
-        <div class="meta">
-          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
-          <?php if($article->tags() != ''): ?> |
-          <ul class="tags">
-            <?php foreach(str::split($article->tags()) as $tag): ?>
-            <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
-            <?php endforeach ?>
-          </ul>
+        <ul class="tags meta">
+          <li>
+            <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
+          </li>
+          <?php if($article->tags() != ''): ?>
+              <?php foreach(str::split($article->tags()) as $tag): ?>
+              <li> 
+                <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+              </li>
+              <?php endforeach ?>
+            
           <?php endif ?>
-          | <a href="<?php echo $article->url() ?>">permalink</a>
-        </div>
+          <li>
+            <a href="<?php echo $article->url() ?>">permalink</a>
+          </li>
+        </ul>
       </header>
-      <?php echo kirbytext($article->text()) ?>
-      <hr>
+      <div class="text">
+        <?php echo kirbytext($article->text()) ?>
+      </div>
     </article>
 
     <?php elseif($article->template() == 'article.video'): // video posts ?>
     <article>
-      <header class="meta">
-        <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('F dS, Y'); ?></time>
-        <?php if($article->tags() != ''): ?> |
-        <ul class="tags">
-          <?php foreach(str::split($article->tags()) as $tag): ?>
-          <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
-          <?php endforeach ?>
+      <header>
+        <ul class="tags meta">
+          <li>
+            <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
+          </li>
+          <?php if($article->tags() != ''): ?>
+              <?php foreach(str::split($article->tags()) as $tag): ?>
+              <li> 
+                <a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+              </li>
+              <?php endforeach ?>
+            
+          <?php endif ?>
+          <li>
+            <a href="<?php echo $article->url() ?>">permalink</a>
+          </li>
         </ul>
-        <?php endif ?>
-        | <a href="<?php echo $article->url() ?>">permalink</a>
       </header>
-      <?php echo kirbytext($article->text()) ?>
-      <hr>
+      <div class="text">
+        <?php echo kirbytext($article->text()) ?>
+      </div>
     </article>
+  
     <?php endif ?>
 
     <?php endforeach // article overview ends ?>
