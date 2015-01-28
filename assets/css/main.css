@@ -97,7 +97,7 @@ body {
   color: #222;
   padding: 1.5em;
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 60em;
   background: #fff;
   color: #222;
 }
@@ -356,26 +356,19 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
  :::  Results
 -------------------------------------------------- */
 .results {
-  margin-bottom: 5em;
-  border-bottom: 1px dashed #333;
+
 }
   .results > li {
     padding-bottom: 1em;
     margin-bottom: .5em;
-    border-top: 1px dashed #333;
+
   }
-    .results h2 {
-      margin-bottom: .25em;
-      font-size: 1.75em;
-      font-weight: 400;
-    }
 
 /*
  :::  Results' heading
 -------------------------------------------------- */
 .result {
   margin-bottom: 1em;
-  font-size: 1.5em;
 }
   .result mark {
     background: inherit;
@@ -634,6 +627,22 @@ article figure {
   height: 2px;
   background: #ddd;
 }
+
+/*
+ ::: Child templates [avid]
+ ------------------------------------------------- */
+
+/*.avideo {
+  background: red;
+}
+
+.atext {
+  background: blue;
+}
+
+.alink {
+  background: yellow;
+}*/
 
 
 /*

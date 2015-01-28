@@ -11,27 +11,34 @@
                             ->flip()
                             ->paginate(10);
 
-          echo '<h1 class="result">Articulos marcados como “<mark>' , $tag , '</mark>”</h1>';
+          echo '<h1 class="result">Articulos tageados como “<mark>' , $tag , '</mark>”</h1>';
     ?>
 
-    <ul class="results">
-      <?php foreach($articles as $article): ?>
-      <li>
-        <h2><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h2>
-        <div class="meta">
-          <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
-          <?php if ($article->tags() != ''): ?> |
-          <ul class="tags">
+    <?php foreach($articles as $article): ?>
+    <article class="results">
+      <header>
+        <h1><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h1>          
+          <ul class="tags meta">
+            <li>
+              <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
+            </li>
+            <?php if($article->tags() != ''): ?>
             <?php foreach(str::split($article->tags()) as $tag): ?>
-            <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+            <li> 
+              <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+            </li>
             <?php endforeach ?>
-          </ul>
-          <?php endif ?>
-        </div>
-      </li>
-      <?php endforeach ?>
-    </ul>
-
+              
+            <?php endif ?>
+          </ul> 
+      </header>
+<!--       <div class="text">
+        <p><?php echo excerpt($article->text(), 100) ?></p>
+        <a href="<?php echo $article->url() ?>">seguir leyendo →</a>
+      </div> -->
+    </article>
+    <?php endforeach ?>
+    
 
     <?php else: // show latest articles ?>
 
@@ -42,7 +49,7 @@
     <?php foreach($articles as $article): // article overview ?>
 
     <?php if($article->template() == 'article.text'): // text posts ?>
-    <article>
+    <article class="atext">
       <header>
         <h1><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h1>
           
@@ -51,11 +58,11 @@
               <time datetime="<?php echo $article->date('c') ?>"><?php echo $article->date('d m Y'); ?></time>
             </li>
             <?php if($article->tags() != ''): ?>
-                <?php foreach(str::split($article->tags()) as $tag): ?>
-                <li> 
-                  <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
-                </li>
-                <?php endforeach ?>
+            <?php foreach(str::split($article->tags()) as $tag): ?>
+            <li> 
+              <a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a>
+            </li>
+            <?php endforeach ?>
               
             <?php endif ?>
           </ul>         
@@ -68,7 +75,7 @@
     
 
     <?php elseif($article->template() == 'article.link'): // link posts ?>
-    <article>
+    <article class="alink">
       <header>
         <h1><a href="<?php echo $article->customlink() ?>"><?php echo html($article->linktitle()) ?> →</a></h1>
         <ul class="tags meta">
@@ -94,7 +101,7 @@
     </article>
 
     <?php elseif($article->template() == 'article.video'): // video posts ?>
-    <article>
+    <article class="avideo">
       <header>
         <ul class="tags meta">
           <li>

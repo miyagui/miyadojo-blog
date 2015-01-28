@@ -24,19 +24,12 @@
 		    <?php echo kirbytext($page->text()) ?>
       </div>
       <footer>
-        <a href="<?php echo url() ?>">← Back to the blog</a>
+        <a href="<?php echo url() ?>">← Regresar al blog</a>
         <a href="https://twitter.com/intent/tweet?source=webclient&text=<?php echo rawurlencode($page->title()); ?>%20<?php echo rawurlencode($site->title()) ?>%20<?php echo rawurlencode ($page->url()); ?>%20<?php echo ('via @your_twitter_account')?>" target="blank" title="Tweet this">Tweet</a>
       </footer>
     </article>
 
-    <nav class="nextprev cf" role="navigation">
-      <?php if($prev = $page->prevVisible()): ?>
-      <a class="prev" href="<?php echo $prev->url() ?>">&larr; anterior</a>
-      <?php endif ?>
-      <?php if($next = $page->nextVisible()): ?>
-      <a class="next" href="<?php echo $next->url() ?>">siguiente &rarr;</a>
-      <?php endif ?>
-    </nav>
+    <?php snippet('navigate') ?>
 
     <?php snippet('disqus', array('disqus_shortname' => 'Miyadojo', 'disqus_developer' => true)) ?>
 
