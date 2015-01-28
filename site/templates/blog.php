@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-  <main role="main">
+  <main role="main" class="main">
 
     <?php if(param('tag')): // show tag results ?>
     <?php $tag = urldecode(param('tag'));
@@ -23,7 +23,7 @@
           <?php if ($article->tags() != ''): ?> |
           <ul class="tags">
             <?php foreach(str::split($article->tags()) as $tag): ?>
-            <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+            <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
             <?php endforeach ?>
           </ul>
           <?php endif ?>
@@ -50,7 +50,7 @@
           <?php if($article->tags() != ''): ?> |
           <ul class="tags">
           <?php foreach(str::split($article->tags()) as $tag): ?>
-          <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+          <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
           <?php endforeach ?>
           </ul>
           <?php endif ?>
@@ -58,7 +58,9 @@
       </header>
       <p><?php echo excerpt($article->text(), 400) ?>
       <a href="<?php echo $article->url() ?>">[read more →]</a></p>
+      <hr>
     </article>
+    
 
     <?php elseif($article->template() == 'article.link'): // link posts ?>
     <article>
@@ -69,7 +71,7 @@
           <?php if($article->tags() != ''): ?> |
           <ul class="tags">
             <?php foreach(str::split($article->tags()) as $tag): ?>
-            <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+            <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
             <?php endforeach ?>
           </ul>
           <?php endif ?>
@@ -77,6 +79,7 @@
         </div>
       </header>
       <?php echo kirbytext($article->text()) ?>
+      <hr>
     </article>
 
     <?php elseif($article->template() == 'article.video'): // video posts ?>
@@ -86,13 +89,14 @@
         <?php if($article->tags() != ''): ?> |
         <ul class="tags">
           <?php foreach(str::split($article->tags()) as $tag): ?>
-          <li><a href="<?php echo url('tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
+          <li><a href="<?php echo url('blog/tag:' . urlencode($tag)) ?>">#<?php echo $tag; ?></a></li>
           <?php endforeach ?>
         </ul>
         <?php endif ?>
         | <a href="<?php echo $article->url() ?>">permalink</a>
       </header>
       <?php echo kirbytext($article->text()) ?>
+      <hr>
     </article>
     <?php endif ?>
 
@@ -103,15 +107,16 @@
 
 
     <?php if($articles->pagination()->hasPages()): // pagination ?>
-    <nav class="pagination cf">
-      <?php if($articles->pagination()->hasPrevPage()): ?>
-      <a class="button prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">&lsaquo;&lsaquo; newer posts</a>
-      <?php endif ?>
-      <?php if($articles->pagination()->hasNextPage()): ?>
-      <a class="button next" href="<?php echo $articles->pagination()->nextPageURL() ?>">older posts &rsaquo;&rsaquo;</a>
-      <?php endif ?>
-    </nav>
-    <?php endif ?>
+      <nav class="nextprev cf" role="navigation">
+        <?php if($articles->pagination()->hasprevPage()): ?>
+        <a class="prev" href="<?php echo $articles->pagination()->prevPageURL() ?>">&larr; previous</a>
+        <?php endif ?>
+        <?php if($articles->pagination()->hasnextPage()): ?>
+        <a class="next" href="<?php echo $articles->pagination()->nextPageURL() ?>">next &rarr;</a>
+        <?php endif ?>
+      </nav>
+    <?php endif ?> 
+
 
   </main>
 

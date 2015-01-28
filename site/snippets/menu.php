@@ -17,8 +17,10 @@
     </li>
     <?php endforeach ?>
   </ul>
+
   <form class="search" role="search" action="<?php echo url('search') ?>">
-    <label class="vh" for="search">Search</label>
-    <input type="search" class="searchword" name="q" id="search" placeholder="Search..."/>
+    <label class="vh" for="search">Busqueda</label>
+    <input type="search" class="searchword" name="q" id="search" placeholder="Busca en el dojo"/ autofocus>
   </form>
+
 </nav>
