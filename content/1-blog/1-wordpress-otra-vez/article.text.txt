@@ -1,0 +1,33 @@
+Title: Wordpress otra vez
+
+----
+
+Date: 2014-09-14
+
+----
+
+Description: 
+
+----
+
+Tags: TI
+
+----
+
+Text: 
+
+[Source](http://miyadojo.com/wordpress-otra-vez/ "Permalink to Wordpress otra vez... - El dojo de Miya")
+
+# Wordpress otra vez... - El dojo de Miya
+
+Que pena volver a blogear en wordpress después de que me haya gustado tanto Ghost y Octopress; especialmente el primero. Realmente si bien por un lado ambas opciones son más apropiadas para mi estilo de escritura. Iré indicando las razones por las cuales decidí finalmente regresar al ya enterrado en caca, WordPress.
+
+A mi parecer, Ghost es lo más cercano a self-hosted blogging; pongo self-hosted porque medium también es una buena alternativa, pero sin ser modular. Ghost por su parte, se enfoca primordialmente en contenido. Lo logra gracias a una interfaz sin distracciones y un formato de texto llamado Markdown. Utiliza el mismo estilo de medium, pero su infraestructura basada en node.js le da la modularidad que Medium no ofrece. Si bien creo que podría ser un estándar en un futuro no lejano. El problema de ghost radica en que la instalación es bastante compleja para un usuario común y que necesita un webhost que soporte node.js. El estándar actual de los hostings es php, asi que por lo pronto si no es php y sql, es HTML.
+
+Debido a ello pase a Octopress. Decidí hostearlo en github pages a pesar de que tenía un hosting propio. Github tiene mucho mejor uptime y velocidad asi que me dije a mi mismo, Why not!
+
+Octopress si bien es un poco dificil de configurar e instalar dependencias, se puede hacer tranquilamente sin mucho problema. El problema principal de Octopress es que es dificil mantener el blog si es que trabajas desde distintas computadoras. Por mi parte, tengo una PC en casa con OSX y Windows 8.1, una laptop con ArchLinux y una PC en el trabajo con Windows 7. Como toda la computación de Octopress o mejor dicho Jekyll están basados en los archivos que tienes localmente y sus dependencias. Mi descontento radicaba en que tenía que instalar las benditas dependencias en cada una de mis computadoras. Lo pude circunventar usando un USB, pero en casos extremos como viajes o trabajos en instituciones en los que tenía acceso a los permisos requeridos, no podría hacer lo mismo. Este problema es muy grave.
+
+WordPress por lo pronto es mi única solución. Lo que he hecho esta vez es utilizar un plugin llamado Gust que me devuelve a la vida con un editor de textos identico al de ghost. Si bien WordPress no es tan rápido ni seguro como quisiera, es más que suficiente para lo poco que escribo.
+
+Salu2

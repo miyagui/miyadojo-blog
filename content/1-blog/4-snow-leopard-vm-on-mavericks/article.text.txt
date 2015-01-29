@@ -1,0 +1,67 @@
+Title: Snow Leopard VM on Mavericks
+
+----
+
+Date: 2014-09-21
+
+----
+
+Description: 
+
+----
+
+Tags: ti
+
+----
+
+Text: 
+
+[Source](http://miyadojo.com/creating-a-snow-leopard-vm-with-virtualbox-on-mavericks/ "Permalink to Creating a Snow Leopard VM with virtualbox on Mavericks")
+
+# Creating a Snow Leopard VM with virtualbox on Mavericks
+
+I'm currently running Mavericks 10.9.5 hackintosh. My specs are 16gb @ 1600, i5 3570k, h77m-d3h, Nvidia gtx560ti.
+
+I ran into a weird problem trying to install an old OSX app. According to various forums the main problem is that after Snow Leopard (10.6) Apple devs stopped maintaining Rosetta. Rosetta was in charge of allowing PowerPC apps to run on Intel based Macs. Which I need to run my beloved app.
+
+I've tried to get it to work without much success, so my last resort ended up being virtualization. I decided to use virtualbox (since it's open source) to run Snow Leopard. I'll try to list my procedure for future reference.
+
+### Software used
+
+* Snow Leopard ISO by hazard
+* iboot Legacy 2.7.2
+* Virtualbox 4.3.16 (latest)
+
+### Virtualbox settings
+
+* System
+    * Enabled – I/O APIC
+    * Disabled – Enable EFI
+    * Enabled – Hardware Clock in UTC
+    * Processor – 1 CPU
+    * Enabled – Enable PAE/NX
+    * Acceleration – Enabled both
+* Display
+    * Video Memory 64mb
+    * Enable 3D acceleration
+* Storage
+    * CD – Snow Leopard ISO by hazard
+    * 50gb vmdk
+* Network
+    * Bridged to get my files in and out easily.
+
+### Boot
+
+My main problem was that it wouldn't boot, I'd get some real time kernel panic on boot. I was able to fix it by  
+booting with:
+
+* -v -busratio=18
+* -v -busratio=16
+
+busratio 16 didn't work for me, I'm guessing it has something to do with my CPU's architecture busratio 18 did though and the rest was history. Everything worked flawlessly.
+
+To boot I used iboot and used a -v to see if any error would ocurr but it didn't.
+
+Hope this helps
+
+Salu2

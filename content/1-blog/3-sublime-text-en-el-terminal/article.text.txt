@@ -1,0 +1,26 @@
+Title: Sublime text en el terminal
+
+----
+
+Date: 2015-09-29
+
+----
+
+Description: 
+
+----
+
+Tags: ti
+
+----
+
+Text: 
+
+# Sublime text on terminal
+    cd /usr/local/bin
+
+    sudo ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
+Should work.
+
+> Give yourself time to learn, don’t be contempt with what you think you know.

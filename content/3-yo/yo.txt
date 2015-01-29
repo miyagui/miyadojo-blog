@@ -1,0 +1,18 @@
+Title: ego
+
+----
+
+Text: 
+
+##  Contáctate conmigo
+
+- <miya@miyadojo.com>
+
+## Sígueme en redes sociales
+
+- en Twitter (twitter: @mrmiyagui)
+- en Github (link: http://github.com/miyagui text: gh:miyagui)
+
+----
+
+Description: Quién, cómo y donde

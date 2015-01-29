@@ -1,0 +1,92 @@
+Title:
+
+Spotify y teclado multimedia en OS X
+
+----
+
+Description:
+
+Problema en OS X para controlar aplicaciones con teclado multimedia
+
+----
+
+Date:
+
+03/01/2015
+
+----
+
+Tags:
+
+TI
+
+----
+
+Text:
+
+# Spotify y los botones multimedia en OSX
+
+Uno de los problemas más grandes que he encontrado usando Spotify en OSX es que si bien puedo usar el boton de Play/Pause en mi teclado, no puedo usar el de Previous/Next.
+
+Lo pude solucionar siguiendo los pasos descritos [acá][1].
+
+* Instalé [USB Overdrive][2]
+* Seleccioné Any Keyboard, Any Application
+* Presioné todos los botones multimedia en mi teclado Microsoft Sidewinder X4. Los botones empezaron a poblar el menú.
+* Clickeando en cada boton, le di a Execute AppleScript en el menú desplegable de la derecha.
+* Pegué el código respectivo para cada botón. En este caso solamente cambie los botones de Play/Pause, Siguiente y Anterior.
+
+Este applescript solamente funciona para iTunes y Spotify.
+
+### Siguiente
+
+    on is_running(appName)
+        tell application "System Events" to (name of processes) contains appName
+    end is_running
+
+    if is_running("iTunes") then
+        tell application "iTunes"
+            next track
+        end tell
+    else
+        tell application "Spotify"
+            next track
+        end tell
+    end if
+
+### Anterior
+
+    on is_running(appName)
+        tell application "System Events" to (name of processes) contains appName
+    end is_running
+
+    if is_running("iTunes") then
+        tell application "iTunes"
+            previous track
+        end tell
+    else
+        tell application "Spotify"
+            previous track
+        end tell
+    end if
+
+### Play/Pause
+
+    on is_running(appName)
+        tell application "System Events" to (name of processes) contains appName
+    end is_running
+
+    if is_running("iTunes") then
+        tell application "iTunes"
+            playpause
+        end tell
+    else
+        tell application "Spotify"
+            playpause
+        end tell
+    end if
+
+Salu2
+
+[1]: https://gist.github.com/NoobsArePeople2/5121597
+[2]: http://www.usboverdrive.com/USBOverdrive/News.html
