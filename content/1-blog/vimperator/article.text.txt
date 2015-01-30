@@ -1,0 +1,35 @@
+Title: Vimperator
+
+----
+
+Date: 
+
+----
+
+Description: 
+
+----
+
+Tags: 
+
+----
+
+Text: 
+
+Como firefox está veloz probaré algo nuevo que encontré por ahi, Vimperator. Browsear solamente con el teclado al fin.
+
+Hotkeys
+
+    j - down one line.
+    k - up one line.
+    o - open URL.
+    shift + h - navigate back 1 step in browser history.
+    shift + l - navigate forward 1 step in browser history.
+    f [number] - opens a link based on the number displayed on screen.
+    shift + f [number] - opens a link based on the number displayed on the screen (new tab).
+    gg - go to top of page.
+    shift + g - go to bottom of page.
+    ctrl + f - navigate down one screen length.
+    ctrl + b - navigate up one screen length.
+    b [number] - switches to the buffer (tab) based on the number supplied.
+    /[word] - search for [word], n goes to the next occurance, shift + n to the previous occurance.

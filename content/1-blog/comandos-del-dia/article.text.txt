@@ -1,0 +1,30 @@
+Title: Comandos del día
+
+----
+
+Date: 2015-01-29
+
+----
+
+Description: 
+
+----
+
+Tags: code
+
+----
+
+Text: 
+
+Show scroll bars only when scrolling – to fix scroll lag
+
+    In System Preferences > General, set scroll bars to show only “When scrolling”. This fixed choppy scrolling in a couple of apps and I decided to stick with this setting.
+
+Animación de expose reducido
+    
+    defaults write com.apple.dock expose-animation-duration -float 0.15
+    killall Dock
+
+Destrucción "safe" de folder
+
+    rm -R
